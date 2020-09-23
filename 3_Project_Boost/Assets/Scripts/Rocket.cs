@@ -1,14 +1,11 @@
-﻿
-using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
     [SerializeField]
     private float rcsThrust = 100f;
-
     [SerializeField]
-    private float mainTrust = 50f;
+    private float mainTrust = 100f;
 
 
     private Rigidbody rigidbody;
@@ -80,7 +77,8 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.forward * rotationThisFrame);
-        } else if (Input.GetKey(KeyCode.D))
+        }
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(-Vector3.forward * rotationThisFrame);
         }
