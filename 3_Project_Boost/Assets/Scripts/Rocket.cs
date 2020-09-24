@@ -8,6 +8,15 @@ public class Rocket : MonoBehaviour
     private float rcsThrust = 100f;
     [SerializeField]
     private float mainThrust = 1000f;
+
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip death;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem deathParticles;
+
     private Rigidbody rigidBody;
     private AudioSource audioSource;
 
@@ -18,43 +27,48 @@ public class Rocket : MonoBehaviour
 
     State state = State.Alive;
 
-    // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (state == State.Alive)
         {
-            Thrust();
-            Rotate();
+            RespondToThrustInput();
+            RespondToRotateInput();
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive)
-        {
-            return;
-        }
-            
+        if (state != State.Alive) { return; }
+
         switch (collision.gameObject.tag)
         {
             case "Friendly":
                 break;
             case "Finish":
                 state = State.Transcending;
+                PlaySound(success);
+                successParticles.Play();
                 Invoke("LoadNextLevel", 1f);
                 break;
             default:
                 state = State.Dying;
+                PlaySound(death);
+                deathParticles.Play();
                 Invoke("LoadFirstLevel", 1f);
                 break;
         }
+    }
+
+    private void PlaySound(AudioClip audio)
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(audio);
     }
 
     private void LoadNextLevel()
@@ -69,34 +83,32 @@ public class Rocket : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private void Thrust()
+    private void RespondToThrustInput()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-
-            float thrustThisFrame = mainThrust * Time.deltaTime;
-            rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame);
-
-            if (!audioSource.isPlaying)
-            {
-                audioSource.volume = 1f;
-                audioSource.Play();
-            }
+            ApplyThrust();
         }
         else
         {
-            if (audioSource.volume > 0.001f)
-            {
-                audioSource.volume *= 0.1f;
-            }
-            else
-            {
-                audioSource.Stop();
-            }
+            audioSource.Stop();
+            mainEngineParticles.Stop();
         }
     }
 
-    private void Rotate()
+    private void ApplyThrust()
+    {
+        float thrustThisFrame = mainThrust * Time.deltaTime;
+        rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+         mainEngineParticles.Play();
+    }
+
+    private void RespondToRotateInput()
     {
         rigidBody.freezeRotation = true; // manual control of rotation
 
