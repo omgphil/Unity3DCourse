@@ -88,6 +88,11 @@ public class Rocket : MonoBehaviour
         audioSource.PlayOneShot(audio);
     }
 
+    private void LoadFirstLevel()
+    {        
+        SceneManager.LoadScene(0);
+    }
+
     private void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
