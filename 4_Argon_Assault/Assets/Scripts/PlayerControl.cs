@@ -42,6 +42,8 @@ public class PlayerControl : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll); ; ;
     }
 
+    // to calc how many particles will be emited its Duration * Emission rate
+
     private void ProcessTranslation()
     {
         // OBSOLETE its built in now
