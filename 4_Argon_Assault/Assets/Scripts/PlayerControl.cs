@@ -24,6 +24,12 @@ public class PlayerControl : MonoBehaviour
     {
         
     }
+    // make sure when you create obstacles create an box collider on it
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("Player Triggered");
+    }
 
     // Update is called once per frame
     void Update()
