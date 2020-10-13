@@ -4,38 +4,38 @@ using UnityStandardAssets.CrossPlatformInput;
 
 // TODO: Change this to use Unity new Input System
 
-public class PlayerControl : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("General")]
     [Tooltip("Meters per second -> ln ms^-1")]
-    [SerializeField] float speed = 20f; // Unity uses meters as a default
-
-    [SerializeField] float positionPitchFactor = -5f;
-    [SerializeField] float positionYawFactor = 5f;
-    [SerializeField] float controlRollFactor = -20f;
-    [SerializeField] float controlPitchFactor = -20f;
-
+    [SerializeField] float controlSpeed = 20f; // Unity uses meters as a default
     [SerializeField] float yRange = 4.5f;
     [SerializeField] float xRange = 7f;
 
+    [Header("Screen-position Based")]
+    [SerializeField] float positionPitchFactor = -5f;
+    [SerializeField] float positionYawFactor = 5f;
+
+    [Header("Contol-Throw Based")]
+    [SerializeField] float controlRollFactor = -20f;
+    [SerializeField] float controlPitchFactor = -20f;
     float xThrow, yThrow;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    // make sure when you create obstacles create an box collider on it
-
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Player Triggered");
-    }
-
+    bool isControlEnabled = true;
+  
     // Update is called once per frame
     void Update()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isControlEnabled)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        }
+    }
+
+    private void OnPlayerDeath() // message from collision Handler
+    {
+        isControlEnabled = false;
     }
 
     // fix this to move with mouse
@@ -56,8 +56,8 @@ public class PlayerControl : MonoBehaviour
         xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
-        float xOffset = xThrow * speed * Time.deltaTime;
-        float yOffset = yThrow * speed * Time.deltaTime;
+        float xOffset = xThrow * controlSpeed * Time.deltaTime;
+        float yOffset = yThrow * controlSpeed * Time.deltaTime;
 
         float rawNewXPos = transform.localPosition.x + xOffset;
         float clampedXpos = Mathf.Clamp(rawNewXPos, -xRange, xRange);
