@@ -223,6 +223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 33065640}
     m_Modifications:
+    - target: {fileID: -1442958797624926106, guid: e6dc1debf7c9d3d4fa9705df98e06df6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1074994750746910, guid: e6dc1debf7c9d3d4fa9705df98e06df6, type: 3}
       propertyPath: m_Name
       value: Banshee
@@ -357,6 +361,10 @@ PrefabInstance:
     - target: {fileID: 4354848751893472, guid: da1655d666ce2e045be77f9909930d06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743927886925423325, guid: da1655d666ce2e045be77f9909930d06, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da1655d666ce2e045be77f9909930d06, type: 3}
@@ -813,6 +821,10 @@ PrefabInstance:
     - target: {fileID: 4354848751893472, guid: da1655d666ce2e045be77f9909930d06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743927886925423325, guid: da1655d666ce2e045be77f9909930d06, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da1655d666ce2e045be77f9909930d06, type: 3}
@@ -6060,6 +6072,34 @@ PrefabInstance:
     - target: {fileID: 4000011334895800, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007964922763616188, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007964922763616188, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007964922763616188, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007964922763616188, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007964922763616188, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
+      propertyPath: CollisionModule.minKillSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007964922763616188, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007964922965332650, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1155234537984590226, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
       propertyPath: m_IsKinematic
