@@ -98,13 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52471bb00124c8c47985a9cfe76f50ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  controlSpeed: 20
+  yRange: 4.5
+  xRange: 7
   positionPitchFactor: -5
   positionYawFactor: 7
   controlRollFactor: -30
   controlPitchFactor: -20
-  yRange: 4.5
-  xRange: 7
 --- !u!65 &7348889226650209767
 BoxCollider:
   m_ObjectHideFlags: 0
