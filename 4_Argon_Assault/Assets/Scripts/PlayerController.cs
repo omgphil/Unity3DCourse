@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float controlSpeed = 20f; // Unity uses meters as a default
     [SerializeField] float yRange = 4.5f;
     [SerializeField] float xRange = 7f;
+    [SerializeField] GameObject[] guns;
 
     [Header("Screen-position Based")]
     [SerializeField] float positionPitchFactor = -5f;
@@ -30,6 +31,26 @@ public class PlayerController : MonoBehaviour
         {
             ProcessTranslation();
             ProcessRotation();
+            ProcessFiring();
+        }
+    }
+
+    private void ProcessFiring()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire"))
+        {
+            IsGunActive(true);
+        } else
+        {
+            IsGunActive(false);
+        }
+    }
+
+    private void IsGunActive(bool v)
+    {
+        foreach (var gun in guns)
+        {
+            gun.SetActive(v);
         }
     }
 
