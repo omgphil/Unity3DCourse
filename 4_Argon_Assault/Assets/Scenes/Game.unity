@@ -324,6 +324,7 @@ MonoBehaviour:
   enemyDeathFX: {fileID: 3176122990410546317, guid: 30c7f44778ad4c44c96f8bd270e8f5c7, type: 3}
   parent: {fileID: 1178920245}
   scorePerHit: 12
+  hits: 3
 --- !u!1001 &550059831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,6 +403,7 @@ MonoBehaviour:
   enemyDeathFX: {fileID: 3176122990410546317, guid: 30c7f44778ad4c44c96f8bd270e8f5c7, type: 3}
   parent: {fileID: 1178920245}
   scorePerHit: 12
+  hits: 3
 --- !u!1 &704592289
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 241, y: 30, z: 203.1}
+  m_LocalPosition: {x: 183.33, y: 30, z: 203.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2022016804}
@@ -1260,6 +1262,7 @@ MonoBehaviour:
   enemyDeathFX: {fileID: 3176122990410546317, guid: 30c7f44778ad4c44c96f8bd270e8f5c7, type: 3}
   parent: {fileID: 1178920245}
   scorePerHit: 12
+  hits: 3
 --- !u!1 &1977892378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011334895800, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 4000011334895800, guid: 54f18632aca0b9744ad946f956d19211, type: 3}
       propertyPath: m_LocalPosition.y
