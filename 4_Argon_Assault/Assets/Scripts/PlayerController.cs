@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
     {
         foreach (var gun in guns)
         {
-            gun.SetActive(v);
+            var emissionModule = gun.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = v;
         }
     }
 
